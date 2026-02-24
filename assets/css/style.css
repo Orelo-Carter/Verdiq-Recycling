@@ -155,7 +155,7 @@ section{
     font-family: var(--p-font);
     line-height: 1.5;
     font-weight: 400;
-    width: 10%;
+    width: 100%;
     max-width: min(90vw, 500px);
     margin-inline: auto;
 }
@@ -195,12 +195,11 @@ ul li{
 .report-cover{
     background: #6CA957;
     background: linear-gradient(349deg,rgba(108, 169, 87, 0.34) 35%, rgba(93, 151, 73, 0.23) 35%, rgba(0, 0, 0, 1) 100%);
-
     width: 100%;
 }
 .report-content{
-     width: min(100%, 500px);
-  padding: clamp(1.6rem, 4vw, 3rem) !important;
+    width: min(100%, 500px);
+    padding: clamp(1.6rem, 4vw, 3rem) !important;
 }
 .report-content img{
     height: 100px;
