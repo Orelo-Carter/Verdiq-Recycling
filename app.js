@@ -2,7 +2,6 @@
 
 
 
-
 // swiper js picture slider
 
 var swiper = new Swiper(".mySwiper1", {
@@ -84,6 +83,31 @@ function navSlide() {
 navSlide();
 
 
+// ScrollSpy (index page section tracking)
+function initScrollSpy() {
+  const navbar = document.querySelector('#main-navbar');
+  const body = document.body;
+
+  if (!navbar || typeof bootstrap === 'undefined') return;
+
+  bootstrap.ScrollSpy.getOrCreateInstance(body, {
+    target: '#main-navbar',
+    offset: 110
+  });
+
+  const hashLinks = navbar.querySelectorAll('.nav-link[href^="#"]');
+  const syncNavActiveClass = () => {
+    hashLinks.forEach(link => link.classList.remove('nav-active'));
+    const activeHashLink = navbar.querySelector('.nav-link.active[href^="#"]');
+    if (activeHashLink) activeHashLink.classList.add('nav-active');
+  };
+
+  body.addEventListener('activate.bs.scrollspy', syncNavActiveClass);
+  syncNavActiveClass();
+}
+
+initScrollSpy();
+
 
 // Nav Hover effect
 
@@ -92,10 +116,10 @@ function navActiveState() {
 
   navLinks.forEach(link => {
     link.addEventListener('click', function () {
+      if (this.getAttribute('href').startsWith('#')) return;
       navLinks.forEach(l => l.classList.remove('nav-active'));
       this.classList.add('nav-active');
     });
   });
 }
 navActiveState();
-
