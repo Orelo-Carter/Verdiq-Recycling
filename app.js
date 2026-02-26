@@ -86,11 +86,13 @@ navSlide();
 // ScrollSpy (index page section tracking)
 function initScrollSpy() {
   const navbar = document.querySelector('#main-navbar');
-  const body = document.body;
+  const scrollSpyContainer = document.querySelector('#page-scrollspy');
+  const canUseContainer = scrollSpyContainer && getComputedStyle(scrollSpyContainer).overflowY !== 'visible';
+  const scrollElement = canUseContainer ? scrollSpyContainer : document.body;
 
   if (!navbar || typeof bootstrap === 'undefined') return;
 
-  bootstrap.ScrollSpy.getOrCreateInstance(body, {
+  bootstrap.ScrollSpy.getOrCreateInstance(scrollElement, {
     target: '#main-navbar',
     offset: 110
   });
@@ -102,7 +104,7 @@ function initScrollSpy() {
     if (activeHashLink) activeHashLink.classList.add('nav-active');
   };
 
-  body.addEventListener('activate.bs.scrollspy', syncNavActiveClass);
+  scrollElement.addEventListener('activate.bs.scrollspy', syncNavActiveClass);
   syncNavActiveClass();
 }
 
