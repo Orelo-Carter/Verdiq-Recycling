@@ -401,6 +401,14 @@ ul li{
     margin-bottom: 10px;
     font-weight: 600;
 }
+.calculator-box p{
+    font-size: 1.4rem;
+    font-family: var(--p-font);
+    line-height: 1.5;
+    color: var(--p-color);
+    margin-top: 10px;
+    font-weight: 400;
+}
 .calculator-box select, .calculator-box input{
     width: 100%;
     padding: 10px;
@@ -448,12 +456,13 @@ ul li{
     border: 1px solid var(--green2);
 }
 #result{
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     font-family: var(--p-font);
     color: var(--green1);
     margin-top: 10px;
     font-weight: 400;
 }
+
 
 /* calculator section ends */
 
